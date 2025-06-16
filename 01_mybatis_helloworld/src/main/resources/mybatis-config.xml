@@ -17,6 +17,6 @@
     </environments>
     <!--引入mybatis映射文件-->
     <mappers>
-        <mapper resource=""/>
+        <mapper resource="mappers/UserMapper.xml"/>
     </mappers>
 </configuration>
