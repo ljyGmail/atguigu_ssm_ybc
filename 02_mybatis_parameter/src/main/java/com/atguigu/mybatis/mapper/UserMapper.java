@@ -10,6 +10,11 @@ import com.atguigu.mybatis.pojo.User;
  * #{}的本质是占位符赋值，${}的本质是字符串拼接。
  * 1. 若mapper接口方法的参数为单个的字面量类型
  * 此时可以通过#{}或${}以任意的内容获取参数值，一定要注意${}的单引号问题。
+ * 2. 若mapper接口方法的参数为多个的字面量类型
+ * 此时MyBatis会讲参数放在map集合中，以两种方式存储数据
+ * a> 以arg0，arg1...为键，以参数为值
+ * b> 以param1，param2...为键，以参数为值
+ * 因此，只需要通过#{}或${}访问map集合中的键，就可以获取相应的值
  *
  * @Author: ljy
  * @Create: 2025. 6. 17. 오후 3:27
@@ -24,4 +29,13 @@ public interface UserMapper {
      * @return
      */
     User getUserByUsername(String username);
+
+    /**
+     * 验证登录
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    User checkLogin(String username, String password);
 }
