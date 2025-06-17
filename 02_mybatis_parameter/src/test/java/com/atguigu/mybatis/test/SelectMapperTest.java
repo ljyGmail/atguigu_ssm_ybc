@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class SelectMapperTest {
 
@@ -32,5 +33,15 @@ public class SelectMapperTest {
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         Integer count = mapper.getCount();
         System.out.println("count: " + count);
+    }
+
+    @Test
+    public void testGetUserByIdToMap() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        Map<String, Object> map = mapper.getUserByIdToMap(3);
+        // {password=123456, gender=男, id=1, age=23, email=123@qq.com, username=admin}
+        // {password=445566, id=3, username=ljy} 对于值为NULL的列，map中不会存储该列的键值对
+        System.out.println("map: " + map);
     }
 }

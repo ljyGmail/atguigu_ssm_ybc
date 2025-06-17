@@ -4,6 +4,7 @@ import com.atguigu.mybatis.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SelectMapper {
 
@@ -34,4 +35,12 @@ public interface SelectMapper {
      * @return
      */
     Integer getCount();
+
+    /**
+     * 根据id查询用户信息为map集合
+     *
+     * @param id
+     * @return
+     */
+    Map<String, Object> getUserByIdToMap(@Param("id") Integer id);
 }
