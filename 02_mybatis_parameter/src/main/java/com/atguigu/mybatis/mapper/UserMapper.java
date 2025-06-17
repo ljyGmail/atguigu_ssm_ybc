@@ -2,6 +2,8 @@ package com.atguigu.mybatis.mapper;
 
 import com.atguigu.mybatis.pojo.User;
 
+import java.util.Map;
+
 /**
  * ClassName: UserMapper
  * Package: org.atguigu.mybatis.mapper
@@ -15,6 +17,8 @@ import com.atguigu.mybatis.pojo.User;
  * a> 以arg0，arg1...为键，以参数为值
  * b> 以param1，param2...为键，以参数为值
  * 因此，只需要通过#{}或${}访问map集合中的键，就可以获取相应的值
+ * 3. 若mapper接口方法的参数为map集合类型的参数
+ * 只需要通过#{}或${}访问map集合中的键，就可以获取相应的值
  *
  * @Author: ljy
  * @Create: 2025. 6. 17. 오후 3:27
@@ -38,4 +42,12 @@ public interface UserMapper {
      * @return
      */
     User checkLogin(String username, String password);
+
+    /**
+     * 验证登录(以map集合作为参数)
+     *
+     * @param map
+     * @return
+     */
+    User checkLoginByMap(Map<String, Object> map);
 }

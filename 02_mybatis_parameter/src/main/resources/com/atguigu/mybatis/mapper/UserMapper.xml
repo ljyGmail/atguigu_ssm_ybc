@@ -35,4 +35,12 @@
         and password = '${param2}'
         -->
     </select>
+
+    <!-- User checkLoginByMap(Map<String, Object> map); -->
+    <select id="checkLoginByMap" resultType="User">
+        select *
+        from t_user
+        where username = #{username}
+          and password = #{password}
+    </select>
 </mapper>
