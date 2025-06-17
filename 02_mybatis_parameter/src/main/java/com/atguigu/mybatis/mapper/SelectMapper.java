@@ -27,4 +27,11 @@ public interface SelectMapper {
      * @return
      */
     List<User> getAllUsers();
+
+    /**
+     * 查询用户的总数量
+     *
+     * @return
+     */
+    Integer getCount();
 }

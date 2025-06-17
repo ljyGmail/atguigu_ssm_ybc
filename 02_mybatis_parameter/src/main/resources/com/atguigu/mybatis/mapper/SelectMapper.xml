@@ -17,4 +17,17 @@
         select *
         from t_user
     </select>
+
+    <!--
+    MyBatis中为Java中常用的类型设置了类型别名
+    Integer: Integer, int
+    int: _int, _integer
+    Map: map
+    String: string
+    -->
+    <!-- Integer getCount(); -->
+    <select id="getCount" resultType="int">
+        select count(*)
+        from t_user
+    </select>
 </mapper>

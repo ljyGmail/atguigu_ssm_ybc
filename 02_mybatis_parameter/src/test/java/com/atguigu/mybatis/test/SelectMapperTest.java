@@ -25,4 +25,12 @@ public class SelectMapperTest {
         List<User> list = mapper.getAllUsers();
         list.forEach(System.out::println);
     }
+
+    @Test
+    public void testGetCount() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        Integer count = mapper.getCount();
+        System.out.println("count: " + count);
+    }
 }
