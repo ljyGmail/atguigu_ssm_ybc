@@ -1,5 +1,7 @@
 package org.atguigu.mybatis.mapper;
 
+import org.atguigu.mybatis.pojo.User;
+
 /**
  * ClassName: UserMapper
  * Package: org.atguigu.mybatis.mapper
@@ -10,4 +12,11 @@ package org.atguigu.mybatis.mapper;
  * @Version 1.0
  */
 public interface UserMapper {
+
+    /**
+     * 根据用户名查询用户信息
+     * @param username
+     * @return
+     */
+    User getUserByUsername(String username);
 }
