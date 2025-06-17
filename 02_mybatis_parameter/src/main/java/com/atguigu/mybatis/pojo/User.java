@@ -1,4 +1,4 @@
-package org.atguigu.mybatis.pojo;
+package com.atguigu.mybatis.pojo;
 
 public class User {
 

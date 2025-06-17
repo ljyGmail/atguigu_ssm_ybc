@@ -6,8 +6,13 @@
 
     <!-- User getUserByUsername(String username); -->
     <select id="getUserByUsername" resultType="User">
+        <!--
         select *
         from t_user
-        where username =
+        where username = #{username}
+        -->
+        select *
+        from t_user
+        where username = '${username}'
     </select>
 </mapper>
