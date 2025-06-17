@@ -1,5 +1,9 @@
 package com.atguigu.mybatis.mapper;
 
+import com.atguigu.mybatis.pojo.User;
+
+import java.util.List;
+
 public interface UserMapper {
 
     /**
@@ -18,4 +22,18 @@ public interface UserMapper {
      * 删除用户信息
      */
     void deleteUser();
+
+    /**
+     * 根据id查询用户信息
+     *
+     * @return
+     */
+    User getUserById();
+
+    /**
+     * 查询所有的用户信息
+     *
+     * @return
+     */
+    List<User> getAllUsers();
 }
