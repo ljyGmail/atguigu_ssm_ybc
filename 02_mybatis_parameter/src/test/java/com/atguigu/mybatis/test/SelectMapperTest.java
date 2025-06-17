@@ -44,4 +44,20 @@ public class SelectMapperTest {
         // {password=445566, id=3, username=ljy} 对于值为NULL的列，map中不会存储该列的键值对
         System.out.println("map: " + map);
     }
+
+    @Test
+    public void testGetAllUsersToMap() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        // List<Map<String, Object>> list = mapper.getAllUsersToMap();
+        // list.forEach(System.out::println);
+        Map<String, Object> map = mapper.getAllUsersToMap();
+        System.out.println("map: " + map);
+        /*
+        map: {
+        1={password=123456, gender=男, id=1, age=23, email=123@qq.com, username=admin},
+        2={password=654321, gender=女, id=2, age=44, email=ybc@atgugu.com, username=root},
+        3={password=445566, id=3, username=ljy}}
+         */
+    }
 }
