@@ -45,4 +45,12 @@ public class ParameterTest {
         User user = new User(null, "root", "654321", 44, "女", "ybc@atgugu.com");
         mapper.insertUser(user);
     }
+
+    @Test
+    public void testCheckLoginByParam() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.checkLoginByParam("admin", "123456");
+        System.out.println("user: " + user);
+    }
 }
