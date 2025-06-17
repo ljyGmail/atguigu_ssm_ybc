@@ -19,6 +19,8 @@ import java.util.Map;
  * 因此，只需要通过#{}或${}访问map集合中的键，就可以获取相应的值
  * 3. 若mapper接口方法的参数为map集合类型的参数
  * 只需要通过#{}或${}访问map集合中的键，就可以获取相应的值
+ * 4. 若mapper接口方法的参数为实体类型的参数
+ * 只需要通过#{}或${}访问实体类型中的属性名，就可以获取相对应的属性值
  *
  * @Author: ljy
  * @Create: 2025. 6. 17. 오후 3:27
@@ -50,4 +52,11 @@ public interface UserMapper {
      * @return
      */
     User checkLoginByMap(Map<String, Object> map);
+
+    /**
+     * 添加用户信息
+     *
+     * @param user
+     */
+    void insertUser(User user);
 }

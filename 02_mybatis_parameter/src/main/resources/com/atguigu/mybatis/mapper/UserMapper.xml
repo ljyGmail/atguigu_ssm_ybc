@@ -43,4 +43,10 @@
         where username = #{username}
           and password = #{password}
     </select>
+
+    <!-- void insertUser(User user); -->
+    <insert id="insertUser">
+        insert into t_user
+        values (null, #{username}, #{password}, #{age}, #{gender}, #{email})
+    </insert>
 </mapper>
