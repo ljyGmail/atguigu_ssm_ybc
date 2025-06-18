@@ -3,7 +3,6 @@
         PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.mybatis.mapper.EmpMapper">
-
     <!--
     字段名和属性名不一致的情况，如何处理映射关系?
     1. 为查询的字段设置别名，和属性名保持一致
@@ -15,6 +14,7 @@
     处理多对一的映射关系:
     1. 及联方式
     2. association
+    3. 分步查询
     -->
 
     <!--
@@ -81,5 +81,27 @@
         from t_emp
                  left join t_dept on t_emp.dept_id = t_dept.dept_id
         where t_emp.emp_id = #{empId}
+    </select>
+
+    <resultMap id="empAndDeptByStepResultMap" type="Emp">
+        <id column="emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <!--
+        property: 设置需要处理映射关系的属性的属性名
+        select: 设置分步查询的sql的唯一标识
+        column: 将查询出的某个字段作为分步查询的sql的条件
+        -->
+        <association property="dept"
+                     select="com.atguigu.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     column="dept_id"/>
+    </resultMap>
+
+    <!-- Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId); -->
+    <select id="getEmpAndDeptByStepOne" resultMap="empAndDeptByStepResultMap">
+        select *
+        from t_emp
+        where emp_id = #{empId}
     </select>
 </mapper>
