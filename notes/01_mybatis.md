@@ -29,3 +29,38 @@ create table ssm.t_user
 1. 进入`设置` -> `Editor` -> `File and Code Templates`。
 2. 按`加号`添加新的模板，输入模板的名字，后缀名，以及模板的内容。
 3. 之后就可以在新建菜单，看到创建的模版。
+
+## 创建表
+
+```mysql
+create table t_emp
+(
+    emp_id   int auto_increment
+        primary key,
+    emp_name varchar(20) null,
+    age      int         null,
+    gender   char        null,
+    dept_id  int         null
+);
+INSERT INTO ssm.t_emp (emp_id, emp_name, age, gender, dept_id)
+VALUES (1, '张三', 20, '男', 1);
+INSERT INTO ssm.t_emp (emp_id, emp_name, age, gender, dept_id)
+VALUES (2, '李四', 22, '女', 2);
+INSERT INTO ssm.t_emp (emp_id, emp_name, age, gender, dept_id)
+VALUES (3, '王五', 23, '男', 3);
+INSERT INTO ssm.t_emp (emp_id, emp_name, age, gender, dept_id)
+VALUES (4, '赵六', 25, '女', 1);
+
+create table t_dept
+(
+    dept_id   int auto_increment
+        primary key,
+    dept_name varchar(20) null
+);
+INSERT INTO ssm.t_dept (dept_id, dept_name)
+VALUES (1, 'A');
+INSERT INTO ssm.t_dept (dept_id, dept_name)
+VALUES (2, 'B');
+INSERT INTO ssm.t_dept (dept_id, dept_name)
+VALUES (3, 'C');
+```

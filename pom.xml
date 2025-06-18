@@ -9,5 +9,6 @@
     <modules>
         <module>01_mybatis_helloworld</module>
         <module>02_mybatis_parameter</module>
+        <module>03_mybatis_result_map</module>
     </modules>
 </project>
