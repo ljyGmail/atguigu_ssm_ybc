@@ -15,4 +15,11 @@
         <!-- 第三种解决方式 -->
         where username like "%"#{criteria}"%"
     </select>
+
+    <!-- void deleteMoreUsers(@Param("ids") String ids); -->
+    <delete id="deleteMoreUsers">
+        delete
+        from t_user
+        where id in (${ids})
+    </delete>
 </mapper>

@@ -43,4 +43,11 @@ public class SpecialSQLMapperTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testDeleteMoreUsers() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SpecialSQLMapper mapper = sqlSession.getMapper(SpecialSQLMapper.class);
+        mapper.deleteMoreUsers("9,10");
+    }
 }
