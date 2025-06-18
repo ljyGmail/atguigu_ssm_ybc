@@ -5,5 +5,6 @@
     <file url="file://$PROJECT_DIR$/02_mybatis_parameter/src/main/resources/com/atguigu/mybatis/mapper/SelectMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/02_mybatis_parameter/src/main/resources/com/atguigu/mybatis/mapper/SpecialSQLMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/02_mybatis_parameter/src/main/resources/com/atguigu/mybatis/mapper/UserMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/03_mybatis_result_map/src/main/resources/com/atguigu/mybatis/mapper/EmpMapper.xml" dialect="GenericSQL" />
   </component>
 </project>
