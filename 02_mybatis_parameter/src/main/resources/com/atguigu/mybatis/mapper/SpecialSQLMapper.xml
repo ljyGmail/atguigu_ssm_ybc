@@ -8,6 +8,11 @@
     <select id="getUserByLike" resultType="User">
         select *
         from t_user
-        where username like '%#{criteria}%'
+        <!-- 第一种解决方式 -->
+        <!-- where username like '%${criteria}%' -->
+        <!-- 第二种解决方式 -->
+        <!-- where username like concat('%', #{criteria}, '%') -->
+        <!-- 第三种解决方式 -->
+        where username like "%"#{criteria}"%"
     </select>
 </mapper>
