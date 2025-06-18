@@ -6,9 +6,7 @@ import com.atguigu.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -35,10 +33,17 @@ public class SpecialSQLMapperTest {
         try {
             Class.forName("");
             Connection connection = DriverManager.getConnection("", "", "");
-            String sql = "select * from t_user where username like '%?%'";
-            PreparedStatement ps = connection.prepareStatement(sql);
+            // String sql = "select * from t_user where username like '%?%'";
+            // PreparedStatement ps = connection.prepareStatement(sql);
             // 下面这行代码编译不通过，因为sql语句中的问号在字符串内部
             // ps.setString(1, "a");
+            // JDBC中获取自增主键的代码
+            String sql = "insert into t_user values()";
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.executeUpdate();
+            ResultSet resultSet = ps.getGeneratedKeys();
+            resultSet.next();
+            int id = resultSet.getInt(1);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,5 +62,14 @@ public class SpecialSQLMapperTest {
         SpecialSQLMapper mapper = sqlSession.getMapper(SpecialSQLMapper.class);
         List<User> list = mapper.getUserList("t_user");
         list.forEach(System.out::println);
+    }
+
+    @Test
+    public void testInsertUser() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SpecialSQLMapper mapper = sqlSession.getMapper(SpecialSQLMapper.class);
+        User user = new User(null, "xiaoming", "123456", 23, "男", "xm@qq.com");
+        mapper.insertUser(user);
+        System.out.println("user: " + user);
     }
 }
