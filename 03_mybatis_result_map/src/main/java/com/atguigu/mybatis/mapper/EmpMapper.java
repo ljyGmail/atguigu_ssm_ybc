@@ -3,6 +3,8 @@ package com.atguigu.mybatis.mapper;
 import com.atguigu.mybatis.pojo.Emp;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * ClassName: EmpMapper
  * Package: com.atguigu.mybatis.mapper
@@ -37,4 +39,12 @@ public interface EmpMapper {
      * @return
      */
     Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId);
+
+    /**
+     * 通过分步查询，查询部门以及部门中的员工信息的第二步
+     *
+     * @param deptId
+     * @return
+     */
+    List<Emp> getDeptAndEmpByStepTwo(@Param("deptId") Integer deptId);
 }
