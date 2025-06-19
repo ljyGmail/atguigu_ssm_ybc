@@ -23,11 +23,21 @@
         separator: 指定每次循环数据之间的分隔符
         open: 指定在整个循环之前以什么开始
         close: 指定在整个循环之前以什么结束
+    6. sql片段: 可以记录一段sql，在需要的地方使用include标签进行引用
+    <sql id="empColumns">
+        emp_id, emp_name, age, gender, dept_id
+    </sql>
+    <include refid="empColumns"/>
     -->
+
+    <sql id="empColumns">
+        emp_id, emp_name, age, gender, dept_id
+    </sql>
 
     <!-- List<Emp> getEmpByCondition(Emp emp); -->
     <select id="getEmpByCondition" resultType="Emp">
-        select *
+        select
+        <include refid="empColumns"/>
         from t_emp
         <trim prefix="where" suffixOverrides="and">
             <if test="empName != null and empName != ''">
@@ -59,7 +69,8 @@
     </select>
 
     <select id="getEmpByConditionOne" resultType="Emp">
-        select *
+        select
+        <include refid="empColumns"/>
         from t_emp
         where 1 = 1
         <if test="empName != null and empName != ''">
@@ -76,7 +87,8 @@
 
     <!-- List<Emp> getEmpByChoose(Emp emp); -->
     <select id="getEmpByChoose" resultType="Emp">
-        select *
+        select
+        <include refid="empColumns"/>
         from t_emp
         <where>
             <choose>
