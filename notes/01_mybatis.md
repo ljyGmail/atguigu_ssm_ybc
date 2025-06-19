@@ -3,7 +3,11 @@
 ## Docker命令
 
 ```bash
+# MacOS
 docker run -d -p 3310:3306 --privileged=true -v ~/Desktop/mysql_volume/log:/var/log/mysql -v ~/Desktop/mysql_volume/data:/var/lib/mysql -v ~/Desktop/mysql_volume/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:8.0
+
+# Windows
+docker run -d -p 3310:3306 --privileged=true -v %USERPROFILE%\Desktop\mysql_volume\log:/var/log/mysql -v %USERPROFILE%\Desktop\mysql_volume\data:/var/lib/mysql -v %USERPROFILE%\Desktop\mysql_volume\conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:8.0
 ```
 
 ## 创建数据库和表
