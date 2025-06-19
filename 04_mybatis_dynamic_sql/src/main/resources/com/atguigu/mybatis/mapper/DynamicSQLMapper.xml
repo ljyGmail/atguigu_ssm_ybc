@@ -17,6 +17,7 @@
     4. choose, when, otherwise
         相当于Java中的if...else if...else
         when至少要有一个，otherwise最多有一个
+    5. foreach
     -->
 
     <!-- List<Emp> getEmpByCondition(Emp emp); -->
@@ -86,4 +87,13 @@
             </choose>
         </where>
     </select>
+
+    <!-- void insertMoreEmps(@Param("emps") List<Emp> emps); -->
+    <insert id="insertMoreEmps">
+        insert into t_emp
+        values
+        <foreach collection="emps" item="emp" separator=",">
+            (null, #{emp.empName}, #{emp.age}, #{emp.gender}, null)
+        </foreach>
+    </insert>
 </mapper>
