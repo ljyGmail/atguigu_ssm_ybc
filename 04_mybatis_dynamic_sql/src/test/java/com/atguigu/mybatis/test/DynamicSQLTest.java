@@ -18,4 +18,13 @@ public class DynamicSQLTest {
         List<Emp> list = mapper.getEmpByCondition(emp);
         list.forEach(System.out::println);
     }
+
+    @Test
+    public void testGetEmpByChoose() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
+        Emp emp = new Emp(null, "", null, "男");
+        List<Emp> list = mapper.getEmpByChoose(emp);
+        list.forEach(System.out::println);
+    }
 }
