@@ -39,4 +39,12 @@ public class DynamicSQLTest {
         List<Emp> list = Arrays.asList(emp1, emp2, emp3);
         mapper.insertMoreEmps(list);
     }
+
+    @Test
+    public void testDeleteMoreEmps() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
+        Integer[] empIds = new Integer[]{6, 7};
+        mapper.deleteMoreEmps(empIds);
+    }
 }
