@@ -21,4 +21,11 @@ public interface CacheMapper {
      * @return
      */
     Emp getEmpById(@Param("empId") Integer empId);
+
+    /**
+     * 添加员工信息
+     *
+     * @param emp
+     */
+    void insertEmp(Emp emp);
 }

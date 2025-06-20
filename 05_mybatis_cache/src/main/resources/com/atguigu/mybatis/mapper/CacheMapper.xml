@@ -8,4 +8,10 @@
     <select id="getEmpById" resultType="Emp">
         select * from t_emp where emp_id = #{empId}
     </select>
+
+    <!-- void insertEmp(Emp emp); -->
+    <insert id="insertEmp">
+        insert into t_emp
+        values (null, #{empName}, #{age}, #{gender}, null)
+    </insert>
 </mapper>
