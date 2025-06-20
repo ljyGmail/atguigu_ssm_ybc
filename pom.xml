@@ -12,5 +12,6 @@
         <module>03_mybatis_result_map</module>
         <module>04_mybatis_dynamic_sql</module>
         <module>05_mybatis_cache</module>
+        <module>06_mybatis_reverse_engineering</module>
     </modules>
 </project>
