@@ -4,5 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="studentOne" class="com.atguigu.spring.pojo.Student"/>
+    <!--
+    <bean id="studentTwo" class="com.atguigu.spring.pojo.Student"/>
+    -->
 
 </beans>

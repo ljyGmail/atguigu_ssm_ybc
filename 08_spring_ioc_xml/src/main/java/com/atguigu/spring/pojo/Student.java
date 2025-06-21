@@ -9,7 +9,7 @@ package com.atguigu.spring.pojo;
  * @Create: 2025. 6. 21. 오전 11:57
  * @Version 1.0
  */
-public class Student {
+public class Student implements Person {
 
     private Integer sid;
     private String sname;
