@@ -7,11 +7,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.atguigu.mybatis</groupId>
-    <artifactId>04_mybatis_dynamic_sql</artifactId>
+    <groupId>com.atguigu.spring</groupId>
+    <artifactId>08_spring_ioc_xml</artifactId>
     <packaging>jar</packaging>
 
-    <name>04_mybatis_dynamic_sql</name>
+    <name>08_spring_ioc_xml</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -19,11 +19,11 @@
     </properties>
 
     <dependencies>
-        <!-- Mybatis核心 -->
+        <!-- 基于Maven依赖传递性，导入spring-context依赖即可导入当前所需所有jar包 -->
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.7</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.1</version>
         </dependency>
         <!-- junit测试 -->
         <dependency>
@@ -32,19 +32,6 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <!-- MySQL驱动 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
-        </dependency>
-
-        <!-- log4j日志 -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-
     </dependencies>
+
 </project>
