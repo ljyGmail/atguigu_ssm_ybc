@@ -1,6 +1,6 @@
 package com.atguigu.spring.test;
 
-import com.atguigu.spring.pojo.Person;
+import com.atguigu.spring.pojo.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -40,9 +40,18 @@ public class IOCByXMLTest {
         // System.out.println("studentOne: " + studentOne);
         // Student student = ioc.getBean(Student.class);
         // System.out.println("student: " + student);
-        // Student student = ioc.getBean("studentTwo", Student.class);
-        // System.out.println("student: " + student);
-        Person person = ioc.getBean(Person.class);
-        System.out.println(person);
+        Student student = ioc.getBean("studentOne", Student.class);
+        System.out.println("student: " + student);
+        // Person person = ioc.getBean(Person.class);
+        // System.out.println(person);
+    }
+
+    @Test
+    public void testDI() {
+        // 获取IOC容器
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-ioc.xml");
+        // 获取bean
+        Student student = ioc.getBean("studentTwo", Student.class);
+        System.out.println("student: " + student);
     }
 }
