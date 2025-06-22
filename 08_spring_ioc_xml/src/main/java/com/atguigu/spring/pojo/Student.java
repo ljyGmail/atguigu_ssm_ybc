@@ -16,6 +16,7 @@ public class Student implements Person {
     private Integer age;
     private String gender;
     private Double score;
+    private Clazz clazz;
 
     // Spring容器创建对象时必须要有无参构造器
     public Student() {
@@ -75,14 +76,23 @@ public class Student implements Person {
         this.score = score;
     }
 
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "sid=" + sid +
+                "age=" + age +
+                ", sid=" + sid +
                 ", sname='" + sname + '\'' +
-                ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", score=" + score +
+                ", clazz=" + clazz +
                 '}';
     }
 }

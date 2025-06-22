@@ -39,4 +39,18 @@
             <null/>
         </property>
     </bean>
+
+    <bean id="studentFive" class="com.atguigu.spring.pojo.Student">
+        <property name="sid" value="1004"/>
+        <property name="sname" value="赵六"/>
+        <property name="age" value="26"/>
+        <property name="gender" value="男"/>
+        <!-- ref: 引用IOC容器中的某个bean的id -->
+        <property name="clazz" ref="clazzOne"/>
+    </bean>
+
+    <bean id="clazzOne" class="com.atguigu.spring.pojo.Clazz">
+        <property name="cid" value="1111"/>
+        <property name="cname" value="最强王者班"/>
+    </bean>
 </beans>
