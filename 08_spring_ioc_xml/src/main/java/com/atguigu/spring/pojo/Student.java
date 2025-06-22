@@ -15,16 +15,24 @@ public class Student implements Person {
     private String sname;
     private Integer age;
     private String gender;
+    private Double score;
 
     // Spring容器创建对象时必须要有无参构造器
     public Student() {
     }
 
-    public Student(Integer sid, String sname, Integer age, String gender) {
+    public Student(Integer sid, String sname, String gender, Integer age) {
         this.sid = sid;
         this.sname = sname;
         this.age = age;
         this.gender = gender;
+    }
+
+    public Student(Integer sid, String sname, String gender, Double score) {
+        this.sid = sid;
+        this.sname = sname;
+        this.gender = gender;
+        this.score = score;
     }
 
     public Integer getSid() {
@@ -59,6 +67,14 @@ public class Student implements Person {
         this.gender = gender;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -66,6 +82,7 @@ public class Student implements Person {
                 ", sname='" + sname + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", score=" + score +
                 '}';
     }
 }
