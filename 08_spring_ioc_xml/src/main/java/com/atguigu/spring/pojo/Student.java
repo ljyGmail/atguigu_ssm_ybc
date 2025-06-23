@@ -1,5 +1,7 @@
 package com.atguigu.spring.pojo;
 
+import java.util.Arrays;
+
 /**
  * ClassName: Student
  * Package: com.atguigu.spring.pojo
@@ -17,6 +19,7 @@ public class Student implements Person {
     private String gender;
     private Double score;
     private Clazz clazz;
+    private String[] hobbies;
 
     // Spring容器创建对象时必须要有无参构造器
     public Student() {
@@ -84,6 +87,14 @@ public class Student implements Person {
         this.clazz = clazz;
     }
 
+    public String[] getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String[] hobbies) {
+        this.hobbies = hobbies;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -93,6 +104,7 @@ public class Student implements Person {
                 ", gender='" + gender + '\'' +
                 ", score=" + score +
                 ", clazz=" + clazz +
+                ", hobbies=" + Arrays.toString(hobbies) +
                 '}';
     }
 }

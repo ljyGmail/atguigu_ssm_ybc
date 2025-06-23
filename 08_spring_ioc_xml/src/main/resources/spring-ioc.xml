@@ -57,6 +57,15 @@
                 <property name="cname" value="远大前程班"/>
             </bean>
         </property>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+                <!-- 如果数组中给元素是引用类型的，使用下面的方式配置 -->
+                <!-- <ref bean=""/> -->
+            </array>
+        </property>
     </bean>
 
     <bean id="clazzOne" class="com.atguigu.spring.pojo.Clazz">
