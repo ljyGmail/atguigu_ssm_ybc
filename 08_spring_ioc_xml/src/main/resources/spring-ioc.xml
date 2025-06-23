@@ -66,6 +66,15 @@
                 <!-- <ref bean=""/> -->
             </array>
         </property>
+        <!--
+        <property name="teacherMap">
+            <map>
+                <entry key="10086" value-ref="teacherOne"/>
+                <entry key="10010" value-ref="teacherTwo"/>
+            </map>
+        </property>
+        -->
+        <property name="teacherMap" ref="teacherMap"/>
     </bean>
 
     <bean id="clazzOne" class="com.atguigu.spring.pojo.Clazz">
@@ -89,4 +98,19 @@
         <ref bean="studentTwo"/>
         <ref bean="studentThree"/>
     </util:list>
+
+    <util:map id="teacherMap">
+        <entry key="10086" value-ref="teacherOne"/>
+        <entry key="10010" value-ref="teacherTwo"/>
+    </util:map>
+
+    <bean id="teacherOne" class="com.atguigu.spring.pojo.Teacher">
+        <property name="tid" value="10086"/>
+        <property name="tname" value="大宝"/>
+    </bean>
+
+    <bean id="teacherTwo" class="com.atguigu.spring.pojo.Teacher">
+        <property name="tid" value="10010"/>
+        <property name="tname" value="小宝"/>
+    </bean>
 </beans>

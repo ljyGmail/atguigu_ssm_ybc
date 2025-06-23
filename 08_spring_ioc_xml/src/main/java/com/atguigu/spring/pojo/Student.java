@@ -1,6 +1,7 @@
 package com.atguigu.spring.pojo;
 
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  * ClassName: Student
@@ -20,6 +21,7 @@ public class Student implements Person {
     private Double score;
     private Clazz clazz;
     private String[] hobbies;
+    private Map<String, Teacher> teacherMap;
 
     // Spring容器创建对象时必须要有无参构造器
     public Student() {
@@ -95,16 +97,25 @@ public class Student implements Person {
         this.hobbies = hobbies;
     }
 
+    public Map<String, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+
+    public void setTeacherMap(Map<String, Teacher> teacherMap) {
+        this.teacherMap = teacherMap;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "age=" + age +
-                ", sid=" + sid +
+                "sid=" + sid +
                 ", sname='" + sname + '\'' +
+                ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", score=" + score +
                 ", clazz=" + clazz +
                 ", hobbies=" + Arrays.toString(hobbies) +
+                ", teacherMap=" + teacherMap +
                 '}';
     }
 }
