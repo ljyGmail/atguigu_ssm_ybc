@@ -10,4 +10,8 @@ package com.atguigu.spring.dao;
  * @Version 1.0
  */
 public interface UserDao {
+    /**
+     * 保存用户信息
+     */
+    void saveUser();
 }

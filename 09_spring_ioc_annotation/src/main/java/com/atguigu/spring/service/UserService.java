@@ -10,4 +10,8 @@ package com.atguigu.spring.service;
  * @Version 1.0
  */
 public interface UserService {
+    /**
+     * 保存用户信息
+     */
+    void saveUser();
 }

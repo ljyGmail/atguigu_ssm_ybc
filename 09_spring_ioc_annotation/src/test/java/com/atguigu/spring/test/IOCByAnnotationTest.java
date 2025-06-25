@@ -25,7 +25,12 @@ public class IOCByAnnotationTest {
      * @Repository: 将类标识为持久层组件
      * <p>
      * 通过注解，扫描所配置的bean的id，默认值为类名的小驼峰，即类名的首字母为小写的结果
-     * 可以通过标识组件的注解的value属性值设置bean的自定义的id
+     * 可以通过标识组件的注解的value属性值设置bean的自定义的id。
+     * <p>
+     * @Autowired: 实现自动装配功能的注解
+     * a> 标识在成员变量上，此时不需要设置成员变量的set方法
+     * b> 标识在set方法上
+     * c> 标识在 为当前成员变量赋值的有参构造器上
      */
 
     @Test
@@ -49,5 +54,12 @@ public class IOCByAnnotationTest {
         System.out.println("userService1: " + userService1);
         UserDao userDao1 = ioc.getBean("userDaoImpl", UserDao.class);
         System.out.println("userDao1: " + userDao1);
+    }
+
+    @Test
+    public void testAutowired() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-ioc-annotation.xml");
+        UserController userController = ioc.getBean(UserController.class);
+        userController.saveUser();
     }
 }
