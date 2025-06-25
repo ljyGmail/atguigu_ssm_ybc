@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
  * @Create: 2025. 6. 25. 오후 3:03
  * @Version 1.0
  */
+// @Controller("myController")
 @Controller
 public class UserController {
 }
