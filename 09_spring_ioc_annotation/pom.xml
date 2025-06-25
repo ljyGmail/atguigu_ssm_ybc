@@ -7,6 +7,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.atguigu.spring</groupId>
     <artifactId>09_spring_ioc_annotation</artifactId>
     <packaging>jar</packaging>
 
