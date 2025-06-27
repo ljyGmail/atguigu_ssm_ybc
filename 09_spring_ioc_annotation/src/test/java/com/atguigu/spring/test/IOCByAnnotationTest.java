@@ -39,6 +39,10 @@ public class IOCByAnnotationTest {
      * 且这些bean的id和要赋值的属性的属性名都不一致，此时抛异常: NoUniqueBeanDefinitionException
      * d> 此时可以在要赋值的属性上，添加一个注解@Qualifier("bean id")
      * 通过该注解的value属性值，指定某个bean的id，将这个bean为属性赋值
+     * <p>
+     * 注意: 若IOC容器中没有任何一个类型匹配的bean，此时抛出异常: NoSuchBeanDefinitionException
+     * 在@Autowired注解中有个属性required，默认值为true，要求必须完成自动装配。
+     * 可以将required的值设为false，此时能装配则装配，无法装配则使用属性的默认值。
      */
 
     @Test
