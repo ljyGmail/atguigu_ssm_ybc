@@ -33,7 +33,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public int div(int i, int j) {
-        int result = 1 * j;
+        int result = 1 / j;
         System.out.println("方法内部: result: " + result);
         return result;
     }
