@@ -8,10 +8,10 @@
     </parent>
 
     <groupId>com.atguigu.spring</groupId>
-    <artifactId>08_spring_ioc_xml</artifactId>
+    <artifactId>11_spring_aop</artifactId>
     <packaging>jar</packaging>
 
-    <name>08_spring_ioc_xml</name>
+    <name>11_spring_aop</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -32,18 +32,10 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <!-- MySQL驱动 -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
-        </dependency>
-        <!-- 数据源 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.2.23</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>6.1.5</version>
         </dependency>
     </dependencies>
-
 </project>
