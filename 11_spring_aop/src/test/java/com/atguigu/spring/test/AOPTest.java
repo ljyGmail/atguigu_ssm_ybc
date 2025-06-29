@@ -24,5 +24,8 @@ public class AOPTest {
         // calculator.add(1, 2);
         Calculator calculator = ioc.getBean(Calculator.class);
         calculator.add(1, 2);
+        calculator.sub(1, 2);
+        calculator.mul(1, 2);
+        calculator.div(1, 2);
     }
 }
