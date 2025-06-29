@@ -2,10 +2,7 @@ package com.atguigu.spring.aop.annotation;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -14,9 +11,13 @@ import java.util.Arrays;
  * ClassName: LoggerAspect
  * Package: com.atguigu.spring.aop.annotation
  * Description:
- * 在切面中，需要通过指定的注解将方法标识为通知方法
+ * 1. 在切面中，需要通过指定的注解将方法标识为通知方法
  * <p>
- * 1. @Before: 前置通知，在目标对象方法执行之前执行
+ *
+ * @Before: 前置通知，在目标对象方法执行之前执行
+ * @After: 后置通知，在目标对象方法的finally字句中执行
+ * @AfterReturning: 返回通知，在目标对象方法的返回值之后执行
+ * @AfterThrowing: 异常通知，在目标对象方法的catch字句中执行
  * <p>
  * 2. 切入点表达式: 设置在标识通知的注解的value属性中
  * execution(public int com.atguigu.spring.aop.annotation.CalculatorImpl.add(int, int))
@@ -29,7 +30,6 @@ import java.util.Arrays;
  * 3. 重用切入点表达书
  * <p>
  * // 声明一个公共的切入点表达式
- *
  * @Pointcut("execution(* com.atguigu.spring.aop.annotation.CalculatorImpl.*(..))")
  * public void pointCut() {
  * }
@@ -68,6 +68,26 @@ public class LoggerAspect {
 
     @After("pointCut()")
     public void afterAdviceMethod(JoinPoint joinPoint) {
-        System.out.println("后置通知");
+        // 获取连接点所对应方法的签名信息
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect, 方法: " + signature.getName() + ", 执行完毕");
+    }
+
+    // 在返回通知中若要获取目标对象方法的返回值，
+    // 只需要通过@AfterReturning注解的returning属性，
+    // 就可以将通知方法的某个参数指定为接收目标对象方法的返回值的参数
+    @AfterReturning(value = "pointCut()", returning = "result")
+    public void afterReturningAdviceMethod(JoinPoint joinPoint, Object result) {
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect, 方法: " + signature.getName() + ", 结果: " + result);
+    }
+
+    // 在异常通知中若要获取目标对象方法的异常信息
+    // 只需要通过@AfterThrowing注解的throwing属性，
+    // 就可以将通知方法的某个参数指定为接收目标对象方法出现的异常的参数
+    @AfterThrowing(value = "pointCut()", throwing = "ex")
+    public void afterThrowingAdviceMethod(JoinPoint joinPoint, Throwable ex) {
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect, 方法: " + signature.getName() + ", 异常: " + ex);
     }
 }
