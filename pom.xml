@@ -18,5 +18,6 @@
         <module>09_spring_ioc_annotation</module>
         <module>10_spring_proxy</module>
         <module>11_spring_aop</module>
+        <module>12_spring_transaction</module>
     </modules>
 </project>
