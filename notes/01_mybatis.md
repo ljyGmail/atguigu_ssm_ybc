@@ -68,3 +68,40 @@ VALUES (2, 'B');
 INSERT INTO ssm.t_dept (dept_id, dept_name)
 VALUES (3, 'C');
 ```
+
+```mysql
+CREATE TABLE t_book
+(
+    book_id   int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    book_name varchar(20)      DEFAULT NULL COMMENT '图书名称',
+    price     int(11)          DEFAULT NULL COMMENT '价格',
+    stock     int(10) unsigned DEFAULT NULL COMMENT '库存（无符号）',
+    PRIMARY KEY (book_id)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 3;
+
+insert into t_book (book_id, book_name, price, stock)
+values (null, '斗破苍穹', 80, 100),
+       (null, '斗罗大陆', 50, 100);
+
+create table t_user
+(
+    user_id  int(11) not null auto_increment comment '主键',
+    username varchar(20)      default null comment '用户名',
+    balance  int(10) unsigned default null comment '余额(无符号)',
+    primary key (user_id)
+) engine = InnoDB
+  auto_increment = 2;
+
+create table t_book_user
+(
+    user_id  int(11) not null auto_increment comment '主键',
+    username varchar(20)      default null comment '用户名',
+    balance  int(10) unsigned default null comment '余额(无符号)',
+    primary key (user_id)
+) engine = InnoDB
+  auto_increment = 2;
+
+insert into t_book_user (user_id, username, balance)
+values (1, 'admin', 50);
+```
