@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Create 2025-06-29 오후 2:35
  * @Version 1.0
  */
-public class AOPTest {
+public class AOPByAnnotationTest {
 
     @Test
     public void testAOPByAnnotation() {
