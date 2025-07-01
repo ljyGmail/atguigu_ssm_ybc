@@ -24,7 +24,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 // 设置Spring测试环境的配置文件
 @ContextConfiguration("classpath:spring-jdbc.xml")
-public class JdbcTemplateTest {
+public class A_JdbcTemplateTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

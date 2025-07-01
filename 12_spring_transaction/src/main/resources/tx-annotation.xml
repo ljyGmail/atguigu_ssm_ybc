@@ -4,6 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 扫描组件 -->
+    <context:component-scan base-package="com.atguigu.spring"/>
+
     <!-- 引入jdbc.properties -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
