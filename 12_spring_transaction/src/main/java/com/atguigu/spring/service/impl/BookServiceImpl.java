@@ -4,6 +4,7 @@ import com.atguigu.spring.dao.BookDao;
 import com.atguigu.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ClassName: BookServiceImpl
@@ -20,6 +21,7 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;
 
+    @Transactional
     @Override
     public void buyBook(Integer userId, Integer bookId) {
         // 查询图书的价格
