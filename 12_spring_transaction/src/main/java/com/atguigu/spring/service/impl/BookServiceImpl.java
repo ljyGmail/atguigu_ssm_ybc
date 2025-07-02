@@ -4,8 +4,6 @@ import com.atguigu.spring.dao.BookDao;
 import com.atguigu.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ClassName: BookServiceImpl
@@ -22,14 +20,14 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;
 
-    @Transactional(
+    // @Transactional(
             // readOnly = true, // 只读
             // timeout = 3, // 超时
             // noRollbackFor = ArithmeticException.class, // 回滚策略
             // noRollbackForClassName = "java.lang.ArithmeticException" // 回滚策略
             // isolation = Isolation.DEFAULT // 事务的隔离级别
-            propagation = Propagation.REQUIRES_NEW
-    )
+            // propagation = Propagation.REQUIRES_NEW
+    // )
     @Override
     public void buyBook(Integer userId, Integer bookId) {
         /*

@@ -4,7 +4,6 @@ import com.atguigu.spring.service.BookService;
 import com.atguigu.spring.service.CheckoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ClassName: CheckoutServiceImpl
@@ -20,7 +19,7 @@ public class CheckoutServiceImpl implements CheckoutService {
     @Autowired
     private BookService bookService;
 
-    @Transactional
+    // @Transactional
     @Override
     public void checkout(Integer userId, Integer[] bookIds) {
         for (Integer bookId : bookIds) {
