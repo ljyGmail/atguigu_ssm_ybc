@@ -33,6 +33,7 @@ public class B_TxByAnnotationTest {
 
     @Test
     public void testByBook() {
-        bookController.buyBook(1, 3);
+        // bookController.buyBook(1, 3);
+        bookController.checkout(1, new Integer[]{3, 4});
     }
 }
